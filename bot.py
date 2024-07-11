@@ -22,25 +22,46 @@ class Bot:
     """
 
     def __init__(self):
-        self.team = "TeamName"  # This is your team name
-        # This is the course that the ship has to follow
+        self.team = "ABoatingAccident"  # This is your team name
+
         self.course = [
-            Checkpoint(latitude=43.797109, longitude=-11.264905, radius=50),
-            Checkpoint(longitude=-29.908577, latitude=17.999811, radius=50),
-            Checkpoint(latitude=-11.441808, longitude=-29.660252, radius=50),
-            Checkpoint(longitude=-63.240264, latitude=-61.025125, radius=50),
-            Checkpoint(latitude=2.806318, longitude=-168.943864, radius=1990.0),
-            Checkpoint(latitude=-62.052286, longitude=169.214572, radius=50.0),
-            Checkpoint(latitude=-15.668984, longitude=77.674694, radius=1190.0),
-            Checkpoint(latitude=-39.438937, longitude=19.836265, radius=50.0),
-            Checkpoint(latitude=14.881699, longitude=-21.024326, radius=50.0),
-            Checkpoint(latitude=44.076538, longitude=-18.292936, radius=50.0),
+            Checkpoint(latitude=38.928962, longitude=-29.901633, radius=50), # 0
+            Checkpoint(latitude=18.677174, longitude=-63.668182, radius=50), # 1
+            Checkpoint(latitude=17.355385, longitude=-64.297441, radius=50), # 2
+            Checkpoint(latitude=9.468760, longitude=-80.265292, radius=50),# 3 
+            Checkpoint(latitude=6.566362, longitude=-78.732970, radius=50), # 4
+            Checkpoint(latitude=0.697582, longitude=-156.908280, radius=50), # 5
+            Checkpoint(latitude=5.487077343928526, longitude=126.97826013731992, radius=50), # 6
+            Checkpoint(latitude=0.8943043273826395, longitude=119.64370985998079 , radius=50), # 7
+            Checkpoint(latitude=-9.192082956771523, longitude=115.57420879991402, radius=30), # 8
+            Checkpoint(latitude=-9.80403836568785, longitude=94.98431811057729, radius=30), # 9
+            Checkpoint(latitude=-5.141523842516368, longitude=78.59842933046924, radius=50), # 10
+            Checkpoint(latitude=12.591779742351633, longitude=50.93666853797446, radius=50), # 11
+            Checkpoint(latitude=12.10319809495949, longitude=43.51976068090509, radius=50), # 12
+            Checkpoint(latitude=12.98804162692998, longitude=42.86416890074322 , radius=50), # 13
+            Checkpoint(latitude=27.118790429173686, longitude=34.7089570042413, radius=50), # 14
+            Checkpoint(latitude=28.135176741601782, longitude=33.33616470489151, radius=50), # 15
+            Checkpoint(latitude=29.546402188408344, longitude=32.45334833295368, radius=50), # 16
+            Checkpoint(latitude=29.558882503421046, longitude=32.419672786937205, radius=50), # 17
+            Checkpoint(latitude=29.690592481026997, longitude=32.3962240979495, radius=50), # 18
+            Checkpoint(latitude=29.586539241656073, longitude=32.39168175553029, radius=50), # 19
+            Checkpoint(latitude=30.00741768544188, longitude=32.35381929715478 , radius=30), # 20
+            Checkpoint(latitude=32.15420070036845, longitude=32.35381929715478, radius=30), # 21
+            Checkpoint(latitude=31.750059040719893, longitude=31.628250697760066, radius=30), # 22
+            Checkpoint(latitude=36.360876335435854, longitude=14.603450611417891, radius=25), # 23
+            Checkpoint(latitude=38.021641064885735, longitude=8.78681357086634, radius=50), # 24
+            Checkpoint(latitude=35.99194826343473, longitude=-5.293664432945284, radius=50), # 25
+            Checkpoint(latitude=35.92692671250301, longitude=-6.41828139588345, radius=50), # 26
+            Checkpoint(latitude=36.270678601096456, longitude=-10.988420977846186, radius=50), # 27
+            Checkpoint(latitude=38.8375726341942, longitude=-10.196388980391959, radius=50), # 28
+            Checkpoint(latitude=43.45451988515832, longitude=-10.687687955181907, radius=50), # 29
             Checkpoint(
                 latitude=config.start.latitude,
                 longitude=config.start.longitude,
                 radius=5,
             ),
         ]
+
 
     def run(
         self,
@@ -110,7 +131,7 @@ class Bot:
         # ===========================================================
 
         # Go through all checkpoints and find the next one to reach
-        for ch in self.course:
+        for i, ch in enumerate(self.course):
             # Compute the distance to the checkpoint
             dist = distance_on_surface(
                 longitude1=longitude,
